@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0D2456</color>
+    <color name="colorPrimary1">#0D2456</color>
+    <color name="colorPrimaryDark">#0D2456</color>
+    <!--<color name="colorAccent">#FF4081</color>-->
+
+    <!--colors of new UI-->
+    <color name="text_heading_color">#333333</color>
+    <color name="edit_text_border_color">#0D2456</color>
+    <color name="background_color">#FCFCFC</color>
+    <color name="text_color_edit_text">#666666</color>
+    <color name="gray_color">#999999</color>
+    <color name="attendence_green">#00A74E</color>
+    <color name="attendence_red">#DC1C40</color>
+    <color name="attendence_orange">#F79421</color>
+    <color name="title_color">#BBBBBB</color>
+
+
+    <color name="new_text_heading">#00A74E</color>
+
+    <color name="unselected">#222222</color>
+
+
+
+
+
+
+    <color name="colorAccent">#125488</color>
+    <color name="colorAccentSecondary">#6200EE</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="white_lite">#f2f2f2</color>
+    <color name="gray">#7b7b7b</color>
+    <color name="hint_color">#cccccc</color>
+    <color name="view_bg">#f7f7f7</color>
+    <color name="name_color">#555555</color>
+    <color name="background">#f5f9fd</color>
+    <color name="text_checks">#777777</color>
+    <color name="text_values">#999999</color>
+    <color name="dialogSelected">#f7941d</color>
+    <!--old image alpha color -->
+    <!--<color name="imageAlpha">#aa000000</color>-->
+    <color name="imageAlpha">#6B000000</color>
+    <color name="imageAlphanew">#80000000</color>
+    <color name="statusbar">#0EA583</color>
+    <color name="blue">#4169E1</color>
+
+    <color name="icActive">#FFFFFFFF</color>
+    <color name="icFocused">#DDFFFFFF</color>
+    <color name="icPressed">#AAFFFFFF</color>
+
+    <color name="shadow">#555555</color>
+    <color name="grey_light">#F8F6F6</color>
+    <color name="red">#FF0D11</color>
+    <color name="text_color">#666666</color>
+    <color name="success_color">#04B444</color>
+    <color name="reject_color">#EC1C55</color>
+    <color name="light_gray">#D3D3D3</color>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "691315287200",
+    "project_id": "location-tracker-17a8e",
+    "storage_bucket": "location-tracker-17a8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691315287200:android:7e8982edaae92274c995c5",
+        "android_client_info": {
+          "package_name": "com.abpal.tel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGi3lGOVW1UhEoYwVArSSvOGKsKp7qD8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

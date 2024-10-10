@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_color">
+
+    <LinearLayout
+        android:id="@+id/custom_header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/imageViewBackButton"
+            android:layout_gravity="center"
+            android:src="@drawable/back_arrow"/>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_medium"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/imageViewUploadProfile"
+                android:layout_marginLeft="210dp"
+                android:layout_marginTop="-50dp"
+                android:src="@drawable/upload_image"/>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/userNameInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="50dp"
+                android:hint="Username"
+                app:boxStrokeColor="@color/edit_text_border_color"
+                app:hintTextColor="@color/edit_text_border_color"
+                style="@style/CustomOutlineBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/userNameEditText"
+                    android:text="jhon user"
+                    android:imeOptions="actionNext"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mobileNumberConfirmInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp"
+                android:hint="Mobile Number"
+                app:boxStrokeColor="@color/edit_text_border_color"
+                app:hintTextColor="@color/edit_text_border_color"
+                style="@style/CustomOutlineBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mobileNumberEditText"
+                    android:imeOptions="actionDone"
+                    android:text="+91 7456312567"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailAddressInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp"
+                android:hint="Email Address"
+                app:boxStrokeColor="@color/edit_text_border_color"
+                app:hintTextColor="@color/edit_text_border_color"
+                style="@style/CustomOutlineBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/emailAddressEditText"
+                    android:imeOptions="actionNext"
+                    android:text="abpal@gmail.com"
+                    android:focusable="false"
+                    android:editable="false"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/companyNameInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp"
+                android:hint="Company Name"
+                app:boxStrokeColor="@color/edit_text_border_color"
+                app:hintTextColor="@color/edit_text_border_color"
+                style="@style/CustomOutlineBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/companyNameEditText"
+                    android:imeOptions="actionNext"
+                    android:text="company name"
+                    android:focusable="false"
+                    android:editable="false"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/proceedButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Update"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_marginTop="40dp"
+                android:padding="12dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

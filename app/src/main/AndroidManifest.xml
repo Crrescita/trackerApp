@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.abpal.tel">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:name="utils.OpusConnectApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/launcher_icon_tracker"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/launcher_icon_tracker"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyNewTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="allowBackup">
+
+        <service
+            android:name="utils.service.LocationService"
+            android:enabled="true"
+            android:foregroundServiceType="location"
+            android:exported="true" />
+
+        <receiver
+            android:name="utils.recevier.RestartBackgroundService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="restartservice" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" /> <!-- comment end here -->
+
+
+<!--        <provider-->
+<!--            android:name="utils.GenericFileProvider"-->
+<!--            android:authorities="${applicationId}.update.provider"-->
+<!--            android:exported="false"-->
+<!--            android:grantUriPermissions="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+<!--                android:resource="@xml/fileprovider_paths" />-->
+<!--        </provider>-->
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider_paths" />
+        </provider>
+
+
+        <activity
+            android:name="com.abpal.employeetracker.activity.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.abpal.employeetracker.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity android:name="com.abpal.employeetracker.activity.DashboardActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.IntroActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.forgot_password.SendOTPForgotPasswordActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.forgot_password.VerifyOTPForgotPasswordActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.forgot_password.ChangePasswordForgotPasswordActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.profile_menu.ChangePasswordProfileActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.profile_menu.ContactUsActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.profile_menu.UpdateProfileActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.profile_menu.attendence_report.AttendenceReportActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.profile_menu.SupportUsActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

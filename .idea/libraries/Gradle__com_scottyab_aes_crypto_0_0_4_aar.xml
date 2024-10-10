@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.scottyab:aes-crypto:0.0.4@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5f2a13f93b479f510d4def34bc6c3175/transformed/jetified-aes-crypto-0.0.4/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5f2a13f93b479f510d4def34bc6c3175/transformed/jetified-aes-crypto-0.0.4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5f2a13f93b479f510d4def34bc6c3175/transformed/jetified-aes-crypto-0.0.4/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.scottyab/aes-crypto/0.0.4/476aff26b72b8ce96787c651fcf522f0898330b8/aes-crypto-0.0.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.scottyab/aes-crypto/0.0.4/90d8b027bda5ce759d22a979ed01a2f06bc3bdc1/aes-crypto-0.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

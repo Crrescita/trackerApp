@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/loginIllustration"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/login_header"
+        android:contentDescription="Login illustration" />
+
+    <TextView
+        android:id="@+id/loginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginIllustration"
+        android:layout_centerHorizontal="true"
+        android:text="Please Login"
+        android:fontFamily="@font/montserrat_medium"
+        android:textSize="20sp"
+        android:textColor="@color/text_heading_color"
+        android:layout_marginTop="26dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/loginTitle"
+        android:layout_marginTop="24dp"
+        android:hint="Email"
+        app:boxStrokeColor="@color/edit_text_border_color"
+        app:hintTextColor="@color/edit_text_border_color"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailEditText"
+            android:imeOptions="actionNext"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/emailInputLayout"
+        android:layout_marginTop="8dp"
+        android:hint="Password"
+        app:boxStrokeColor="@color/edit_text_border_color"
+        app:hintTextColor="@color/edit_text_border_color"
+        app:endIconMode="password_toggle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordEditText"
+            android:imeOptions="actionDone"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordInputLayout"
+        android:text="Forgot password?"
+        android:textSize="12sp"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/new_text_heading"
+        android:layout_marginTop="12dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/forgotPassword"
+        android:text="Login"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:padding="12dp" />
+
+    </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

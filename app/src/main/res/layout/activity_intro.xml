@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/loginIllustration"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/intro_image_header"
+                android:contentDescription="Login illustration" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loginIllustration"
+                android:layout_gravity="center"
+                android:text="Hey there! Welcome aboard!"
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="18sp"
+                android:textColor="@color/new_text_heading"
+                android:layout_marginTop="60dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loginIllustration"
+                android:layout_gravity="center"
+                android:text="We’ve got your back when it comes to tracking and managing your attendance. With our app, you can effortlessly check-in and check-out, keep track of your working hours, and monitor your location. Stay on top of your leaves, simplify your workday, and ensure you’re always in the loop. Let’s get started and make managing your attendance a breeze!"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:textColor="@color/text_heading_color"
+                android:layout_marginTop="10dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/getStarteButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Get Started"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_marginTop="50dp"
+                android:padding="12dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
