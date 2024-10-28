@@ -156,7 +156,9 @@ public class HomeFragment extends Fragment {
                 isPunchedIn = prefsMain.getBoolean(AppConstant.IS_PUNCHED_IN, false);
                 if (isGPSEnabled()) {
                     if(latituteGlobal.equals("") && longituteGlobal.equals("")){
-                        Toast.makeText(getActivity(), "Please wait your GPS intailize", Toast.LENGTH_LONG).show();
+                        if (getActivity() != null && !getActivity().isFinishing()) {
+                            Toast.makeText(getActivity(), "Please wait your GPS intailize", Toast.LENGTH_LONG).show();
+                        }
                     }else{
                         if (isPunchedIn) {
                             punchOutCall();
@@ -169,7 +171,9 @@ public class HomeFragment extends Fragment {
                     }
 
                 } else {
-                    Toast.makeText(getActivity(), "Please enable GPS", Toast.LENGTH_LONG).show();
+                    if (getActivity() != null && !getActivity().isFinishing()) {
+                        Toast.makeText(getActivity(), "Please enable GPS", Toast.LENGTH_LONG).show();
+                    }
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                 }
             }
@@ -271,7 +275,10 @@ public class HomeFragment extends Fragment {
                         try {
                             ModelError error = converter.convert(response.errorBody());
                             progressBar.dismiss();
-                            Utility.getInstance().handleApiError(error.getMsg(), getActivity(), prefsEditor);
+                            if (getActivity() != null && !getActivity().isFinishing()) {
+                                Utility.getInstance().handleApiError(error.getMsg(), getActivity(), prefsEditor);
+                            }
+
                         } catch (IOException e) {
                             //This is Catch Block
                             progressBar.dismiss();
@@ -291,9 +298,13 @@ public class HomeFragment extends Fragment {
                                 String latestCheckOutTime = obj.getString("latestCheckOutTime");
 
                                 updatePunchStatus(checkin_status,earliestCheckInTime,latestCheckOutTime,total_duration);
-                                Toast.makeText(getActivity(), "Check out Successfully", Toast.LENGTH_SHORT).show();
+                                if (getActivity() != null && !getActivity().isFinishing()) {
+                                    Toast.makeText(getActivity(), "Check out Successfully", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
-                                Utility.getInstance().handleApiError(responseJSON.getString("message"), getActivity(), prefsEditor);
+                                if (getActivity() != null && !getActivity().isFinishing()) {
+                                    Utility.getInstance().handleApiError(responseJSON.getString("message"), getActivity(), prefsEditor);
+                                }
                             }
                         } catch (Exception e) {
                             Log.e("dd", "sdds");
@@ -355,7 +366,9 @@ public class HomeFragment extends Fragment {
                         try {
                             ModelError error = converter.convert(response.errorBody());
                             progressBar.dismiss();
-                            Utility.getInstance().handleApiError(error.getMsg(), getActivity(), prefsEditor);
+                            if (getActivity() != null && !getActivity().isFinishing()) {
+                                Utility.getInstance().handleApiError(error.getMsg(), getActivity(), prefsEditor);
+                            }
                         } catch (IOException e) {
                             //This is Catch Block
                             progressBar.dismiss();
@@ -366,7 +379,9 @@ public class HomeFragment extends Fragment {
                             String responseBodyString = response.body().string();
                             JSONObject responseJSON = new JSONObject(responseBodyString);
                             if (responseJSON.getBoolean("status")) {
-                                Toast.makeText(getActivity(), "Check in Successfully", Toast.LENGTH_SHORT).show();
+                                if (getActivity() != null && !getActivity().isFinishing()) {
+                                    Toast.makeText(getActivity(), "Check in Successfully", Toast.LENGTH_SHORT).show();
+                                }
                                 JSONObject obj = responseJSON.getJSONObject("data");
                                 // JSONObject obj = data.getJSONObject(0);
 
@@ -377,7 +392,9 @@ public class HomeFragment extends Fragment {
 
                                 updatePunchStatus(checkin_status,earliestCheckInTime,latestCheckOutTime,total_duration);
                             } else {
-                                Utility.getInstance().handleApiError(responseJSON.getString("message"), getActivity(), prefsEditor);
+                                if (getActivity() != null && !getActivity().isFinishing()) {
+                                    Utility.getInstance().handleApiError(responseJSON.getString("message"), getActivity(), prefsEditor);
+                                }
                             }
                         } catch (Exception e) {
                             Log.e("dd", "sdds");
@@ -444,17 +461,22 @@ public class HomeFragment extends Fragment {
             if (!UtilGps.INSTANCE.isMyServiceRunning(mLocationService.getClass(), getActivity())) {
                 prefsEditor.putBoolean(AppConstant.IS_MANUALY_SERVICE_STOP,false);
                 prefsEditor.commit();
-                getActivity().startService(mServiceIntent);
+                //getActivity().startService(mServiceIntent);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    getActivity().startForegroundService(mServiceIntent);
+                } else {
+                    getActivity().startService(mServiceIntent);
+                }
             }
 
 
         } else {
-            Glide.with(this)
-                    .asGif()
-                    .load(R.raw.check_in) // Replace with your GIF resource name
-                    .into(attendenceImageButton);
+//            Glide.with(this)
+//                    .asGif()
+//                    .load(R.raw.check_in) // Replace with your GIF resource name
+//                    .into(attendenceImageButton);
 
-            // attendenceImageButton.setImageResource(R.drawable.check_in);
+             attendenceImageButton.setImageResource(R.drawable.check_in);
             prefsEditor.putBoolean(AppConstant.IS_PUNCHED_IN, false);
 
             mLocationService = new LocationService();
@@ -519,7 +541,9 @@ public class HomeFragment extends Fragment {
                     try {
                         ModelError error = converter.convert(response.errorBody());
                         progressBar.dismiss();
-                        Utility.getInstance().handleApiError(error.getMsg(), getActivity(), prefsEditor);
+                        if (getActivity() != null && !getActivity().isFinishing()) {
+                            Utility.getInstance().handleApiError(error.getMsg(), getActivity(), prefsEditor);
+                        }
                     } catch (IOException e) {
                         //This is Catch Block
                         progressBar.dismiss();
@@ -542,7 +566,9 @@ public class HomeFragment extends Fragment {
                             updatePunchStatus(checkin_status,earliestCheckInTime,latestCheckOutTime,total_duration);
 
                         } else {
-                            Utility.getInstance().handleApiError(responseJSON.getString("message"), getActivity(), prefsEditor);
+                            if (getActivity() != null && !getActivity().isFinishing()) {
+                                Utility.getInstance().handleApiError(responseJSON.getString("message"), getActivity(), prefsEditor);
+                            }
                         }
                     } catch (Exception e) {
                         Log.e("dd", "sdds");

@@ -66,7 +66,6 @@ public class LocationService extends Service {
     private SecurePreferences.Editor prefsEditor = null;
     private Timer timer = null;
     private TimerTask timerTask = null;
-
     private TimerTask APICallTimerTask;
     private Timer APICallTimer;
 
@@ -75,14 +74,12 @@ public class LocationService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
             createNotificationChannel();
         } else {
             startForeground(1, new Notification());
         }
         requestLocationUpdates();
-
         prefsMain = SingletonHelperGlobal.mySharedPreferenceHelper;
         prefsEditor = prefsMain.edit();
     }
@@ -125,7 +122,6 @@ public class LocationService extends Service {
         Log.d(TAG, "Service destroyed");
         stopTimerTask();
         stopForeground(true);
-
         if(!prefsMain.getBoolean(AppConstant.IS_MANUALY_SERVICE_STOP, false)){
             Intent broadcastIntent = new Intent();
             broadcastIntent.setAction("restartservice");
@@ -142,63 +138,37 @@ public class LocationService extends Service {
         // Check if GPS is enabled
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-
+        ContentValues values = new ContentValues();
         if (isGPSEnabled) {
             Log.e(TAG, "GPS is enabled."+"latitude = "+latitude+" longitute = "+longitude);
-            ContentValues values = new ContentValues();
-
             // Add key-value pairs for each column
-            values.put("company_id", prefsMain.getInt(AppConstant.COMPANY_ID, 1)); // Example company ID
-            values.put("emp_id", prefsMain.getInt(AppConstant.USERID, 2));     // Example employee ID
             values.put("latitude", latitude+""); // Example latitude
             values.put("longitude", longitude+""); // Example longitude
-            values.put("battery_status", getBatteryLevel()+"%"); // Example battery status
-            values.put("gps_status", "1");  // Example GPS status
-            values.put("internet_status", isInternetConnected()+""); // Example internet status date-time
-            values.put("date_time", getDateTimeForFESubmission()); // Example record creation date-time
-
-            // Insert data into the table
-            int result = SingletonHelperGlobal.mDBDbHelper.insertData(values, "LocalLocationTable");
-
-            // Check if the data was inserted successfully
-            if (result == 1) {
-                // Insert successful
-                Log.e("DB_INSERT", "Data inserted successfully");
-            } else {
-                // Insert failed
-                Log.e("DB_INSERT", "Data insert failed");
-            }
-            // Additional logic when GPS is enabled
         } else {
-
             latitude = 0.0;
             longitude = 0.0;
             Log.e(TAG, "GPS is disabled."+"latitude = "+latitude+" longitute = "+longitude);
-
-            ContentValues values = new ContentValues();
-
-            // Add key-value pairs for each column
-            values.put("company_id", prefsMain.getInt(AppConstant.COMPANY_ID, 1)); // Example company ID
-            values.put("emp_id", prefsMain.getInt(AppConstant.USERID, 2));     // Example employee ID
             values.put("latitude", latitude+""); // Example latitude
             values.put("longitude", longitude+""); // Example longitude
-            values.put("battery_status", getBatteryLevel()+"%"); // Example battery status
-            values.put("gps_status", "0");  // Example GPS status
-            values.put("internet_status", isInternetConnected()+""); // Example internet status date-time
-            values.put("date_time", getDateTimeForFESubmission()); // Example record creation date-time
+        }
 
-            // Insert data into the table
-            int result = SingletonHelperGlobal.mDBDbHelper.insertData(values, "LocalLocationTable");
+        values.put("company_id", prefsMain.getInt(AppConstant.COMPANY_ID, 1)); // Example company ID
+        values.put("emp_id", prefsMain.getInt(AppConstant.USERID, 2));     // Example employee ID
+        values.put("battery_status", getBatteryLevel()+"%"); // Example battery status
+        values.put("gps_status", "1");  // Example GPS status
+        values.put("internet_status", isInternetConnected()+""); // Example internet status date-time
+        values.put("date_time", getDateTimeForFESubmission()); // Example record creation date-time
 
-            // Check if the data was inserted successfully
-            if (result == 1) {
-                // Insert successful
-                Log.e("DB_INSERT", "Data inserted successfully");
-            } else {
-                // Insert failed
-                Log.e("DB_INSERT", "Data insert failed");
-            }
-            // Additional logic when GPS is disabled
+        // Insert data into the table
+        int result = SingletonHelperGlobal.mDBDbHelper.insertData(values, "LocalLocationTable");
+
+        // Check if the data was inserted successfully
+        if (result == 1) {
+            // Insert successful
+            Log.e("DB_INSERT", "Data inserted successfully");
+        } else {
+            // Insert failed
+            Log.e("DB_INSERT", "Data insert failed");
         }
     }
 
@@ -282,7 +252,7 @@ public class LocationService extends Service {
 
             }
         };
-        APICallTimer.schedule(APICallTimerTask, 0, 30000); // Example: run every 60 seconds
+        APICallTimer.schedule(APICallTimerTask, 0, 60000); // Example: run every 60 seconds
     }
     public void startTimer() {
         timer = new Timer();
@@ -298,14 +268,14 @@ public class LocationService extends Service {
                 }
             }
         };
-        timer.schedule(timerTask, 0, 25000); // Example: run every 10 seconds
+        timer.schedule(timerTask, 0, 55000); // Example: run every 10 seconds
     }
 
     @SuppressLint("MissingPermission")
     private void requestLocationUpdates() {
         LocationRequest request = LocationRequest.create()
-                .setInterval(20000)
-                .setFastestInterval(20000)
+                .setInterval(50000)
+                .setFastestInterval(50000)
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(this);
 

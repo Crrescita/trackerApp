@@ -222,6 +222,18 @@ public class WebRequest {
         );
 
 
+        @POST("setFcmToken")
+        Call<ResponseBody> setFcmToken(@Header("Content-Type") String con_type,
+                                          @Header("authorization") String authorization,
+                                          @Body String jsonObject);
+
+
+        @POST("app-version")
+        Call<ResponseBody> checkAppVersion(@Header("Content-Type") String con_type,
+                                          @Header("authorization") String authorization,
+                                          @Body String jsonObject);
+
+
     }
 
 }

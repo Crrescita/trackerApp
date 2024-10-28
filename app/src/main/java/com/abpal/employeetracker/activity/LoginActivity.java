@@ -334,7 +334,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         String responseBodyString = response.body().string();
                         JSONObject responseJSON = new JSONObject(responseBodyString);
                         if (responseJSON.getBoolean("status")) {
-                            Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
                             JSONObject resposneData = responseJSON.getJSONObject("data");
                             prefsEditor.putInt(AppConstant.USERID, resposneData.getInt("id"));
                             prefsEditor.putInt(AppConstant.COMPANY_ID, resposneData.getInt("company_id"));
@@ -343,13 +342,79 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             prefsEditor.putString(AppConstant.EMPLOYEE_NAME, resposneData.getString("name"));
                             prefsEditor.putString(AppConstant.USER_IMAGE, resposneData.getString("image"));
                             prefsEditor.putString(AppConstant.EMPLOYEE_EMAIL_ID, resposneData.getString("email"));
-                            prefsEditor.putBoolean(AppConstant.IS_USER_LOGGED_IN, true);
+                            //prefsEditor.putBoolean(AppConstant.IS_USER_LOGGED_IN, true);
                             prefsEditor.commit();
-                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                            startActivity(intent);
-                            finish();
+
+
+                            try {
+                                JSONObject obj = new JSONObject();
+                                obj.put("version", BuildConfig.VERSION_NAME);
+                                obj.put("device", "android");
+                                checkAppVersion(obj);
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
                         } else {
                             Utility.getInstance().handleApiError(responseJSON.getString("message"), LoginActivity.this,prefsEditor);
+                        }
+                    } catch (Exception e) {
+                        Log.e("dd", "sdds");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                progressBar.dismiss();
+            }
+        });
+    }
+
+
+    public void checkAppVersion(JSONObject jsonObject) {
+        String token = prefsMain.getString(AppConstant.API_TOKEN, "");
+        WebRequest mWebRequest = new WebRequest(this);
+        Call<ResponseBody> user1 = mWebRequest.m_ApiInterface.checkAppVersion(AppConstant.CONTENT_TYPE,
+                "Bearer " + token, jsonObject.toString());
+        user1.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.errorBody() != null) {
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(BuildConfig.BASE_URL)
+                            .addConverterFactory(ScalarsConverterFactory.create())
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                    Converter<ResponseBody, ModelError> converter = retrofit.responseBodyConverter(ModelError.class, new Annotation[0]);
+
+                    try {
+                        ModelError error = converter.convert(response.errorBody());
+                        progressBar.dismiss();
+                        Utility.getInstance().handleApiError(error.getMsg(),LoginActivity.this,prefsEditor);
+                    } catch (IOException e) {
+                        //This is Catch Block
+                        progressBar.dismiss();
+                    }
+                } else {
+                   progressBar.dismiss();
+                    try {
+                        String responseBodyString = response.body().string();
+                        JSONObject responseJSON = new JSONObject(responseBodyString);
+                        if (responseJSON.getBoolean("status")) {
+                            if(responseJSON.getBoolean("is_update")){
+                                //Update the Application
+                                Utility.getInstance().showAppUpdateDailog(LoginActivity.this,prefsEditor,responseJSON.getString("msg"),LoginActivity.this);
+                            }else{
+                                Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
+                                prefsEditor.putBoolean(AppConstant.IS_USER_LOGGED_IN, true);
+                                prefsEditor.commit();
+                                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+
+                        } else {
+                            Utility.getInstance().handleApiError(responseJSON.getString("msg"),LoginActivity.this,prefsEditor);
                         }
                     } catch (Exception e) {
                         Log.e("dd", "sdds");

@@ -121,6 +121,21 @@ public class Utility {
         context.startActivity(intent);
     }
 
+    public void showAppUpdateDailog(Context context,SecurePreferences.Editor prefsEditor,String msg,Activity activity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("App Update Alert");
+        builder.setMessage(msg);
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(context, "Play Store link will coming soon! or you can try to update from playstore", Toast.LENGTH_SHORT).show();
+                activity.finish();
+            }
+        });
+        builder.show();
+    }
+
     public static void deleteCache(Context context) {
         try {
             File dir = context.getCacheDir();
