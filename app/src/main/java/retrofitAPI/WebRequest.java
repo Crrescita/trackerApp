@@ -150,6 +150,10 @@ public class WebRequest {
                                          @Header("authorization") String authorization,
                                          @Body String jsonObject);
 
+        @POST("sendLiveLocation")
+        Call<ResponseBody> sendLiveLocation(@Header("Content-Type") String con_type,
+                                         @Body String jsonObject);
+
         @POST("checkIn")
         Call<ResponseBody> checkIn(@Header("Content-Type") String con_type,
                                    @Header("authorization") String authorization,

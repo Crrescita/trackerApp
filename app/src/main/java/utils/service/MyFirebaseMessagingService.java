@@ -1,61 +1,48 @@
 package utils.service;
 
-import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.IntentFilter;
+import android.location.LocationManager;
 import android.media.RingtoneManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import com.abpal.employeetracker.activity.DashboardActivity;
+import com.abpal.tel.BuildConfig;
 import com.abpal.tel.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.securepreferences.SecurePreferences;
-import org.json.JSONArray;
-import org.json.JSONException;
+
 import org.json.JSONObject;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.lang.annotation.Annotation;
-import java.util.List;
+
+import java.io.IOException;
 import java.util.Map;
 
-import utils.SingletonHelperGlobal;
-import database.MySQLiteHelper;
-import modelResponse.ChecksDownloaded;
 import modelResponse.ModelError;
-import modelResponse.feassigned_check_response.CheckField;
-import modelResponse.feassigned_check_response.Datum;
-import modelResponse.feassigned_check_response.DisabledChecks;
-import modelResponse.feassigned_check_response.FEAssignedChecksResponse;
-import modelResponse.feassigned_check_response.StatedCheckField;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Converter;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 import retrofitAPI.WebRequest;
 import utils.AppConstant;
-import utils.MasterDataCallbackListner;
-import utils.OpusConnectSingleTon;
-import utils.Utility;
+import utils.SingletonHelperGlobal;
+import database.MySQLiteHelper;
+
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
@@ -97,9 +84,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             int notificationType = 0;
             int notificationId = 3838; //default
+            String requestFCMToken = "";
+            String emp_id = "";
             try {
                 notificationType = Integer.parseInt(data.get("notificationType"));
                 notificationId = Integer.parseInt(data.get("notificationId"));
+                requestFCMToken = data.get("requestFcmToken");
+                emp_id = data.get("emp_id");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -107,6 +98,44 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             switch (notificationType) {
                 case 1:
+                    String latitute = "";
+                    String longitute = "";
+                    String batteryStatus = "";
+                    String internetStatus = "";
+                    String gps_status = "";
+                    try {
+                      latitute =prefsMain.getString("latituteFused","");
+                      longitute =prefsMain.getString("longitudeFused","");
+                      batteryStatus = getBatteryLevel()+"%";
+                      internetStatus = isInternetConnected()+"";
+
+
+                        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                        boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                        if (isGPSEnabled) {
+                            gps_status = "1";
+                        }else{
+                            gps_status ="0";
+                        }
+
+
+                        JSONObject obj = new JSONObject();
+                        obj.put("emp_id", emp_id);
+                        obj.put("fcm_token", requestFCMToken);
+                        obj.put("latitude", latitute);
+                        obj.put("longitude", longitute);
+                        obj.put("battery_status", batteryStatus);
+                        obj.put("gps_status", gps_status);
+                        obj.put("internet_status", internetStatus);
+                        obj.put("motion", "NA");
+
+                        setCoordinateAPI(obj);
+
+
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case 2:
                     break;
@@ -157,4 +186,74 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     }
 
+    public int getBatteryLevel() {
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent batteryStatus = registerReceiver(null, intentFilter);
+
+        // Battery level (0 to 100)
+        int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+
+        // Calculate the battery percentage
+        int batteryPct = (int) ((level / (float) scale) * 100);
+        return batteryPct;
+    }
+
+    private int isInternetConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isInternetConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+        if(isInternetConnected){
+            return 1;
+        }else {
+            return 0;
+        }
+    }
+
+
+    public void setCoordinateAPI(JSONObject jsonObject) {
+        String token = prefsMain.getString(AppConstant.API_TOKEN, "");
+        WebRequest mWebRequest = new WebRequest(this);
+        Call<ResponseBody> user1 = mWebRequest.m_ApiInterface.sendLiveLocation(
+                AppConstant.CONTENT_TYPE,
+                jsonObject.toString()
+        );
+        user1.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.errorBody() != null) {
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(BuildConfig.BASE_URL)
+                            .addConverterFactory(ScalarsConverterFactory.create())
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                    try {
+                        ModelError error = (ModelError) retrofit.responseBodyConverter(ModelError.class, new java.lang.annotation.Annotation[0]).convert(response.errorBody());
+                        // Utility.getInstance().showDialog(error.getMsg(), LocationService.this);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        String responseBodyString = response.body().string();
+                        JSONObject responseJSON = new JSONObject(responseBodyString);
+                        if (responseJSON.getBoolean("status")) {
+
+                            Log.e("API FCM", "Success: ");
+                        } else {
+                            Log.e("API FCM", "Failure");
+                        }
+                    } catch (Exception e) {
+                        Log.e("API FCM exception", e.getLocalizedMessage());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("API failure", t.getLocalizedMessage());
+            }
+        });
+    }
 }

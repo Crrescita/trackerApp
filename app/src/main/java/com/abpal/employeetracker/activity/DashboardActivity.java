@@ -172,7 +172,7 @@ public class DashboardActivity extends AppCompatActivity {
                         String responseBodyString = response.body().string();
                         JSONObject responseJSON = new JSONObject(responseBodyString);
                         if (responseJSON.getBoolean("status")) {
-                            Toast.makeText(DashboardActivity.this, responseJSON.getString("message"), Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(DashboardActivity.this, responseJSON.getString("message"), Toast.LENGTH_SHORT).show();
                         } else {
                             Utility.getInstance().handleApiError(responseJSON.getString("message"),DashboardActivity.this,prefsEditor);
                         }
@@ -246,7 +246,7 @@ public class DashboardActivity extends AppCompatActivity {
                                 //Update the Application
                                 Utility.getInstance().showAppUpdateDailog(DashboardActivity.this,prefsEditor,responseJSON.getString("msg"),DashboardActivity.this);
                             }else{
-                                Toast.makeText(DashboardActivity.this, responseJSON.getString("msg"), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(DashboardActivity.this, responseJSON.getString("msg"), Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Utility.getInstance().handleApiError(responseJSON.getString("msg"),DashboardActivity.this,prefsEditor);

@@ -144,18 +144,19 @@ public class LocationService extends Service {
             // Add key-value pairs for each column
             values.put("latitude", latitude+""); // Example latitude
             values.put("longitude", longitude+""); // Example longitude
+            values.put("gps_status", "1");  // Example GPS status
         } else {
             latitude = 0.0;
             longitude = 0.0;
             Log.e(TAG, "GPS is disabled."+"latitude = "+latitude+" longitute = "+longitude);
             values.put("latitude", latitude+""); // Example latitude
             values.put("longitude", longitude+""); // Example longitude
+            values.put("gps_status", "0");  // Example GPS status
         }
 
         values.put("company_id", prefsMain.getInt(AppConstant.COMPANY_ID, 1)); // Example company ID
         values.put("emp_id", prefsMain.getInt(AppConstant.USERID, 2));     // Example employee ID
         values.put("battery_status", getBatteryLevel()+"%"); // Example battery status
-        values.put("gps_status", "1");  // Example GPS status
         values.put("internet_status", isInternetConnected()+""); // Example internet status date-time
         values.put("date_time", getDateTimeForFESubmission()); // Example record creation date-time
 

@@ -144,7 +144,7 @@ public class HomeFragment extends Fragment {
 
 
         // Initialize punch status and times
-       // updatePunchStatus();
+        // updatePunchStatus();
         getPunchStatusFromServer();
 
         updateTimeForTicker();
@@ -155,11 +155,11 @@ public class HomeFragment extends Fragment {
                 vibrateDevice();
                 isPunchedIn = prefsMain.getBoolean(AppConstant.IS_PUNCHED_IN, false);
                 if (isGPSEnabled()) {
-                    if(latituteGlobal.equals("") && longituteGlobal.equals("")){
+                    if (latituteGlobal.equals("") && longituteGlobal.equals("")) {
                         if (getActivity() != null && !getActivity().isFinishing()) {
                             Toast.makeText(getActivity(), "Please wait your GPS intailize", Toast.LENGTH_LONG).show();
                         }
-                    }else{
+                    } else {
                         if (isPunchedIn) {
                             punchOutCall();
                             // Punch out
@@ -297,7 +297,7 @@ public class HomeFragment extends Fragment {
                                 String earliestCheckInTime = obj.getString("earliestCheckInTime");
                                 String latestCheckOutTime = obj.getString("latestCheckOutTime");
 
-                                updatePunchStatus(checkin_status,earliestCheckInTime,latestCheckOutTime,total_duration);
+                                updatePunchStatus(checkin_status, earliestCheckInTime, latestCheckOutTime, total_duration);
                                 if (getActivity() != null && !getActivity().isFinishing()) {
                                     Toast.makeText(getActivity(), "Check out Successfully", Toast.LENGTH_SHORT).show();
                                 }
@@ -390,7 +390,7 @@ public class HomeFragment extends Fragment {
                                 String earliestCheckInTime = obj.getString("earliestCheckInTime");
                                 String latestCheckOutTime = obj.getString("latestCheckOutTime");
 
-                                updatePunchStatus(checkin_status,earliestCheckInTime,latestCheckOutTime,total_duration);
+                                updatePunchStatus(checkin_status, earliestCheckInTime, latestCheckOutTime, total_duration);
                             } else {
                                 if (getActivity() != null && !getActivity().isFinishing()) {
                                     Utility.getInstance().handleApiError(responseJSON.getString("message"), getActivity(), prefsEditor);
@@ -418,40 +418,75 @@ public class HomeFragment extends Fragment {
 
     private void setupLocationUpdates() {
         LocationRequest locationRequest = LocationRequest.create();
-        locationRequest.setInterval(1000); // 1 minute
-        locationRequest.setFastestInterval(1000); // 30 seconds
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
-        locationCallback = new LocationCallback() {
-            @Override
-            public void onLocationResult(LocationResult locationResult) {
-                if (locationResult == null) {
-                    return;
-                }
-                for (Location location : locationResult.getLocations()) {
-                    if (location != null) {
-                        double latitude = location.getLatitude();
-                        double longitude = location.getLongitude();
-                        prefsEditor.putString("latitudeFused", String.valueOf(latitude));
-                        prefsEditor.putString("longitudeFused", String.valueOf(longitude));
-                        prefsEditor.commit();
-                        latituteGlobal = latitude + "";
-                        longituteGlobal = longitude + "";
-                        //tvLocation.setText("Current Location: " + latitude + ", " + longitude);
-                       // Log.d("Location Service", "Location update: " + location);
-                    }
-                }
-            }
-        };
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); // High accuracy for precise results
+        locationRequest.setInterval(0); // Immediate location
+        locationRequest.setFastestInterval(0);
 
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+            // Use fusedLocationClient to request a single location update
+            fusedLocationClient.getCurrentLocation(LocationRequest.PRIORITY_HIGH_ACCURACY, null)
+                    .addOnSuccessListener(location -> {
+                        if (location != null) {
+                            double latitude = location.getLatitude();
+                            double longitude = location.getLongitude();
+
+                            // Save the current location to shared preferences
+                            prefsEditor.putString("latitudeFused", String.valueOf(latitude));
+                            prefsEditor.putString("longitudeFused", String.valueOf(longitude));
+                            prefsEditor.commit();
+
+                            // Update global variables
+                            latituteGlobal = String.valueOf(latitude);
+                            longituteGlobal = String.valueOf(longitude);
+
+                            // Log the current location
+                            Log.d("LocationService", "Current location: " + latitude + ", " + longitude);
+                        } else {
+                            Log.e("LocationService", "Failed to get the current location.");
+                        }
+                    })
+                    .addOnFailureListener(e -> Log.e("LocationService", "Error getting current location: " + e.getMessage()));
         } else {
-            // Handle permission request or show a message to the user
+            Log.e("LocationService", "Permission for location access is not granted");
         }
     }
 
-    private void updatePunchStatus(String checkin_status, String punchInTime, String punchOutTime,String totalDuration) {
+//    private void setupLocationUpdates() {
+//        LocationRequest locationRequest = LocationRequest.create();
+//        locationRequest.setInterval(1000); // 1 minute
+//        locationRequest.setFastestInterval(1000); // 30 seconds
+//        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+//
+//        locationCallback = new LocationCallback() {
+//            @Override
+//            public void onLocationResult(LocationResult locationResult) {
+//                if (locationResult == null) {
+//                    return;
+//                }
+//                for (Location location : locationResult.getLocations()) {
+//                    if (location != null) {
+//                        double latitude = location.getLatitude();
+//                        double longitude = location.getLongitude();
+//                        prefsEditor.putString("latitudeFused", String.valueOf(latitude));
+//                        prefsEditor.putString("longitudeFused", String.valueOf(longitude));
+//                        prefsEditor.commit();
+//                        latituteGlobal = latitude + "";
+//                        longituteGlobal = longitude + "";
+//                        //tvLocation.setText("Current Location: " + latitude + ", " + longitude);
+//                        // Log.d("Location Service", "Location update: " + location);
+//                    }
+//                }
+//            }
+//        };
+//
+//        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+//            fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+//        } else {
+//            // Handle permission request or show a message to the user
+//        }
+//    }
+
+    private void updatePunchStatus(String checkin_status, String punchInTime, String punchOutTime, String totalDuration) {
         if (checkin_status.equalsIgnoreCase("Check-in")) {
             attendenceImageButton.setImageResource(R.drawable.checkout);
             prefsEditor.putBoolean(AppConstant.IS_PUNCHED_IN, true);
@@ -459,7 +494,7 @@ public class HomeFragment extends Fragment {
             mLocationService = new LocationService();
             mServiceIntent = new Intent(getActivity(), LocationService.class);
             if (!UtilGps.INSTANCE.isMyServiceRunning(mLocationService.getClass(), getActivity())) {
-                prefsEditor.putBoolean(AppConstant.IS_MANUALY_SERVICE_STOP,false);
+                prefsEditor.putBoolean(AppConstant.IS_MANUALY_SERVICE_STOP, false);
                 prefsEditor.commit();
                 //getActivity().startService(mServiceIntent);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -471,18 +506,13 @@ public class HomeFragment extends Fragment {
 
 
         } else {
-//            Glide.with(this)
-//                    .asGif()
-//                    .load(R.raw.check_in) // Replace with your GIF resource name
-//                    .into(attendenceImageButton);
-
-             attendenceImageButton.setImageResource(R.drawable.check_in);
+            attendenceImageButton.setImageResource(R.drawable.check_in);
             prefsEditor.putBoolean(AppConstant.IS_PUNCHED_IN, false);
 
             mLocationService = new LocationService();
             mServiceIntent = new Intent(getActivity(), LocationService.class);
             if (UtilGps.INSTANCE.isMyServiceRunning(mLocationService.getClass(), getActivity())) {
-                prefsEditor.putBoolean(AppConstant.IS_MANUALY_SERVICE_STOP,true);
+                prefsEditor.putBoolean(AppConstant.IS_MANUALY_SERVICE_STOP, true);
                 prefsEditor.commit();
                 getActivity().stopService(mServiceIntent);
             }
@@ -556,14 +586,14 @@ public class HomeFragment extends Fragment {
                         if (responseJSON.getBoolean("status")) {
                             // Punch out
                             JSONObject obj = responseJSON.getJSONObject("data");
-                           // JSONObject obj = data.getJSONObject(0);
+                            // JSONObject obj = data.getJSONObject(0);
 
                             String checkin_status = obj.getString("checkin_status");
                             String total_duration = obj.getString("total_duration");
                             String earliestCheckInTime = obj.getString("earliestCheckInTime");
                             String latestCheckOutTime = obj.getString("latestCheckOutTime");
 
-                            updatePunchStatus(checkin_status,earliestCheckInTime,latestCheckOutTime,total_duration);
+                            updatePunchStatus(checkin_status, earliestCheckInTime, latestCheckOutTime, total_duration);
 
                         } else {
                             if (getActivity() != null && !getActivity().isFinishing()) {

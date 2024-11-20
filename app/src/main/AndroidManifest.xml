@@ -137,6 +137,9 @@
 
         <activity android:name="com.abpal.employeetracker.activity.profile_menu.SupportUsActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name="com.abpal.employeetracker.activity.BackgroundLocationPermissionActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

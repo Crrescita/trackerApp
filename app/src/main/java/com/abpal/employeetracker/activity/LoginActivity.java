@@ -1,6 +1,7 @@
 package com.abpal.employeetracker.activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -24,6 +25,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -112,22 +115,47 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void requestPermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             // Request POST_NOTIFICATIONS permission if on Android 13+
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, NOTIFICATION_PERMISSION_REQUEST_CODE);
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) !=
+                    PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                        NOTIFICATION_PERMISSION_REQUEST_CODE);
                 return;
             }
         }
         // Request ACCESS_FINE_LOCATION permission
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_FINE_LOCATION_REQUEST_CODE);
-        } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Request ACCESS_BACKGROUND_LOCATION if ACCESS_FINE_LOCATION is granted
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, ACCESS_BACKGROUND_LOCATION_REQUEST_CODE);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
+                PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    ACCESS_FINE_LOCATION_REQUEST_CODE);
+        } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) !=
+                PackageManager.PERMISSION_GRANTED  && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                // Request ACCESS_BACKGROUND_LOCATION if ACCESS_FINE_LOCATION is granted
+            Intent intent = new Intent(this, BackgroundLocationPermissionActivity.class);
+            activityResultLauncher.launch(intent);
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION},
+//                        ACCESS_BACKGROUND_LOCATION_REQUEST_CODE);
         } else {
             // All permissions granted, proceed with login
             proceedLogin();
         }
     }
+
+
+    private final ActivityResultLauncher<Intent> activityResultLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                    result -> {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent data = result.getData();
+                            if (data != null) {
+                                String incomingdata = data.getStringExtra("resultKey");
+                               // Toast.makeText(this, "Result: " + incomingdata, Toast.LENGTH_SHORT).show();
+                                if(incomingdata.equals("1")){
+                                    proceedLogin();
+                                }
+
+                            }
+                        }
+                    });
 
     private void vibrateDevice() {
         // Get the Vibrator service
@@ -160,14 +188,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
 
-            case ACCESS_BACKGROUND_LOCATION_REQUEST_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Background location granted, proceed with login or other logic
-                    proceedLogin();
-                } else {
-                    handlePermissionDenial(Manifest.permission.ACCESS_BACKGROUND_LOCATION);
-                }
-                break;
+
 
             case NOTIFICATION_PERMISSION_REQUEST_CODE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -175,6 +196,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     requestPermissions();
                 } else {
                     handlePermissionDenial(Manifest.permission.POST_NOTIFICATIONS);
+                }
+                break;
+
+            case ACCESS_BACKGROUND_LOCATION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Background location granted, proceed with login or other logic
+                    proceedLogin();
+                } else {
+                    handlePermissionDenial(Manifest.permission.ACCESS_BACKGROUND_LOCATION);
                 }
                 break;
 
@@ -196,7 +226,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void showRationaleDialog(String permission) {
         new AlertDialog.Builder(this)
                 .setTitle("Permission Required")
-                .setMessage("Allow all time permission is needed for location, select Allow all time from setting for all permission. Are you sure you want to deny this permission?")
+                .setMessage("Allow all time permission is needed for location," +
+                        " select Allow all time from setting for all permission. Are you sure you want to deny this permission?")
                 .setPositiveButton("Retry", (dialog, which) -> requestPermissions())
                 .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
                 .show();
@@ -205,7 +236,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void showSettingsDialog() {
         new AlertDialog.Builder(this)
                 .setTitle("Permission Required")
-                .setMessage("You have denied the permission with 'Don't ask again'. Please enable permissions from the app settings.")
+                .setMessage("You have denied the permission with 'Don't ask again'." +
+                        " Please enable permissions from the app settings.")
                 .setPositiveButton("Open Settings", (dialog, which) -> {
                     Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
                     intent.setData(Uri.parse("package:" + getPackageName()));
