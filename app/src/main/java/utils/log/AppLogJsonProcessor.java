@@ -3,7 +3,7 @@ package utils.log;
 import android.content.Context;
 import android.os.Build;
 
-import com.abpal.tel.BuildConfig;
+import com.crrescita.tel.BuildConfig;
 import com.auth.icici.util.Logger;
 
 import org.json.JSONArray;

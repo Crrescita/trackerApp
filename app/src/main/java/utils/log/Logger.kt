@@ -2,7 +2,7 @@ package com.auth.icici.util
 
 import android.os.Environment
 import android.util.Log
-import com.abpal.tel.BuildConfig
+import com.crrescita.tel.BuildConfig
 import utils.AppConstant
 
 import java.io.File

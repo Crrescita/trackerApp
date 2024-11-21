@@ -2,7 +2,7 @@ package retrofitAPI;
 
 import android.content.Context;
 
-import com.abpal.tel.BuildConfig;
+import com.crrescita.tel.BuildConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -16,18 +16,6 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import modelResponse.CheckFieldsResponse;
-import modelResponse.ChecksDownloaded;
-import modelResponse.FEDashboardResponse;
-import modelResponse.ModelError;
-import modelResponse.feassigned_check_response.FEAssignedChecksResponse;
-import modelResponse.master_data.MasterDataResponse;
-import modelResponse.notification.NotificationResponse;
-import modelResponse.ResponseNew;
-import modelResponse.SyncCheckResponse;
-import modelResponse.notification.parameter.NotificationParameter;
-import modelResponse.proximity.ProximityStatusResponse;
-import modelResponse.way_point_sequence.WayPointSequenceResponse;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
@@ -44,8 +32,6 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
-import retrofit2.http.Url;
-import utils.service.UpdateFCMTokenResponse;
 
 /**
  * Created by Kapil Rathee on 10/9/18.

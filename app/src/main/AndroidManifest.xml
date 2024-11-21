@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.abpal.tel">
+    package="com.crrescita.tel">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -94,7 +94,7 @@
 
 
         <activity
-            android:name="com.abpal.employeetracker.activity.SplashActivity"
+            android:name="com.crrescita.employeetracker.activity.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -104,41 +104,41 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.abpal.employeetracker.activity.LoginActivity"
+            android:name="com.crrescita.employeetracker.activity.LoginActivity"
             android:screenOrientation="portrait" />
 
 
-        <activity android:name="com.abpal.employeetracker.activity.DashboardActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.DashboardActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.IntroActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.IntroActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.forgot_password.SendOTPForgotPasswordActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.forgot_password.SendOTPForgotPasswordActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.forgot_password.VerifyOTPForgotPasswordActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.forgot_password.VerifyOTPForgotPasswordActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.forgot_password.ChangePasswordForgotPasswordActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.forgot_password.ChangePasswordForgotPasswordActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.profile_menu.ChangePasswordProfileActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.profile_menu.ChangePasswordProfileActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.profile_menu.ContactUsActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.profile_menu.ContactUsActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.profile_menu.UpdateProfileActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.profile_menu.UpdateProfileActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.profile_menu.attendence_report.AttendenceReportActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.profile_menu.attendence_report.AttendenceReportActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.profile_menu.SupportUsActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.profile_menu.SupportUsActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.abpal.employeetracker.activity.BackgroundLocationPermissionActivity"
+        <activity android:name="com.crrescita.employeetracker.activity.BackgroundLocationPermissionActivity"
             android:screenOrientation="portrait"/>
     </application>
 

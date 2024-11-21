@@ -14,7 +14,7 @@ import android.media.ExifInterface;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.abpal.tel.R;
+import com.crrescita.tel.R;
 import com.developers.imagezipper.ImageZipper;
 
 import java.io.ByteArrayOutputStream;

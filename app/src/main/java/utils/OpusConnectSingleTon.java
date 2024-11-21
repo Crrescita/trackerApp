@@ -6,8 +6,6 @@ import android.database.Cursor;
 import com.securepreferences.SecurePreferences;
 import java.util.ArrayList;
 import database.MySQLiteHelper;
-import modelResponse.GroupHelperModelClass;
-import modelResponse.way_point_sequence.own_array.MyRequestedSequenceData;
 import utils.service.UpdateFirebaseNotification;
 
 public class OpusConnectSingleTon {

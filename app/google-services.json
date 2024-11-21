@@ -2,14 +2,14 @@
   "project_info": {
     "project_number": "691315287200",
     "project_id": "location-tracker-17a8e",
-    "storage_bucket": "location-tracker-17a8e.appspot.com"
+    "storage_bucket": "location-tracker-17a8e.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:691315287200:android:7e8982edaae92274c995c5",
+        "mobilesdk_app_id": "1:691315287200:android:d0e7bdddb1d4abc6c995c5",
         "android_client_info": {
-          "package_name": "com.abpal.tel"
+          "package_name": "com.crrescita.tel"
         }
       },
       "oauth_client": [],

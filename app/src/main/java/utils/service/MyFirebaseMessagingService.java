@@ -3,7 +3,6 @@ package utils.service;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -18,9 +17,9 @@ import android.os.Bundle;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
-import com.abpal.employeetracker.activity.DashboardActivity;
-import com.abpal.tel.BuildConfig;
-import com.abpal.tel.R;
+import com.crrescita.employeetracker.activity.DashboardActivity;
+import com.crrescita.tel.BuildConfig;
+import com.crrescita.tel.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.securepreferences.SecurePreferences;
@@ -82,15 +81,28 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             String body = data.get("body");
 
 
-            int notificationType = 0;
+            int notificationType = 2;
             int notificationId = 3838; //default
             String requestFCMToken = "";
             String emp_id = "";
             try {
-                notificationType = Integer.parseInt(data.get("notificationType"));
-                notificationId = Integer.parseInt(data.get("notificationId"));
-                requestFCMToken = data.get("requestFcmToken");
-                emp_id = data.get("emp_id");
+                if(null!=data.get("notificationType")){
+                    notificationType = Integer.parseInt(data.get("notificationType"));
+                }
+
+                if(null!=data.get("notificationId")){
+                    notificationId = Integer.parseInt(data.get("notificationId"));
+                }
+
+                if(null!=data.get("requestFcmToken")){
+                    requestFCMToken = data.get("requestFcmToken");
+                }
+
+                if(null!=data.get("emp_id")){
+                    emp_id = data.get("emp_id");
+                }
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -138,52 +150,58 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     }
                     break;
                 case 2:
+                    showNotification(notificationId,notificationType,title,body);
                     break;
                 case 3:
+                    showNotification(notificationId,notificationType,title,body);
                     break;
                 case 4:
+                    showNotification(notificationId,notificationType,title,body);
                     break;
             }
 
-            Intent intent = new Intent(this, DashboardActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            Bundle bundle = new Bundle();
-            bundle.putInt("redirect_flag", notificationType);
-            intent.putExtras(bundle);
-            intent.putExtra("redirect_flag", notificationType);
-
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, notificationType /* Request code */, intent,
-                    PendingIntent.FLAG_MUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
-
-            String channelId = "Tel All";
-            Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            NotificationCompat.Builder notificationBuilder =
-                    new NotificationCompat.Builder(this, channelId)
-                            .setContentTitle(title)
-                            .setSmallIcon(R.drawable.tel_logo)
-                            .setContentText(body)
-                            .setAutoCancel(true)
-                            .setSound(defaultSoundUri)
-                            .setContentIntent(pendingIntent);
-
-            NotificationManager notificationManager =
-                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-            // Since android Oreo notification channel is needed.
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                NotificationChannel channel = new NotificationChannel(channelId,
-                        "TEL",
-                        NotificationManager.IMPORTANCE_DEFAULT);
-                notificationManager.createNotificationChannel(channel);
-            }
-
-            notificationManager.notify(notificationId, notificationBuilder.build());
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    private void showNotification(int notificationId, int notificationType, String title, String body) {
+        Intent intent = new Intent(this, DashboardActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        Bundle bundle = new Bundle();
+        bundle.putInt("redirect_flag", notificationType);
+        intent.putExtras(bundle);
+        intent.putExtra("redirect_flag", notificationType);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, notificationType /* Request code */, intent,
+                PendingIntent.FLAG_MUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+
+        String channelId = "Tel All";
+        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder notificationBuilder =
+                new NotificationCompat.Builder(this, channelId)
+                        .setContentTitle(title)
+                        .setSmallIcon(R.drawable.tel_logo)
+                        .setContentText(body)
+                        .setAutoCancel(true)
+                        .setSound(defaultSoundUri)
+                        .setContentIntent(pendingIntent);
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // Since android Oreo notification channel is needed.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(channelId,
+                    "TEL",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        notificationManager.notify(notificationId, notificationBuilder.build());
     }
 
     public int getBatteryLevel() {

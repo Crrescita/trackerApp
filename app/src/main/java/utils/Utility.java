@@ -1,72 +1,41 @@
 package utils;
 
-import static android.content.Context.ACTIVITY_SERVICE;
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.os.Build;
-import android.os.Environment;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.os.StatFs;
 import android.text.Html;
 import android.text.InputFilter;
 import android.text.Spanned;
-import android.util.Base64;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.abpal.employeetracker.activity.LoginActivity;
-import com.abpal.tel.BuildConfig;
-import com.abpal.tel.R;
+import com.crrescita.employeetracker.activity.LoginActivity;
+import com.crrescita.tel.R;
 import com.securepreferences.SecurePreferences;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
-import java.util.SortedMap;
-import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import database.MySQLiteHelper;
-import encryption.AESEncreption;
-import modelResponse.DropDownValueForPhotoModel;
-import modelResponse.DynamicPhotoModel;
-import modelResponse.GSTAndDropDownPhotoModel;
-import modelResponse.MultiCallModel;
-import modelResponse.UnableToVerifyModel;
-import modelResponse.notification.NotificationList;
 
 public class Utility {
     private static final Utility utility = new Utility();

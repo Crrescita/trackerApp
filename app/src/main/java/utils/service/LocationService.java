@@ -24,11 +24,10 @@ import android.os.IBinder;
 import android.util.Log;
 
 import androidx.annotation.RequiresApi;
-import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
-import com.abpal.tel.BuildConfig;
+import com.crrescita.tel.BuildConfig;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -243,6 +242,10 @@ public class LocationService extends Service {
 
 
     public void startSecondTimer() {
+        prefsMain = SingletonHelperGlobal.mySharedPreferenceHelper;
+        prefsEditor = prefsMain.edit();
+        Long timer = prefsMain.getLong("Timers",50000);
+        timer = timer+10000;
         APICallTimer = new Timer();
         APICallTimerTask = new TimerTask() {
             @Override
@@ -253,9 +256,14 @@ public class LocationService extends Service {
 
             }
         };
-        APICallTimer.schedule(APICallTimerTask, 0, 60000); // Example: run every 60 seconds
+        APICallTimer.schedule(APICallTimerTask, 0, timer); // Example: run every 60 seconds
     }
+
+
     public void startTimer() {
+        prefsMain = SingletonHelperGlobal.mySharedPreferenceHelper;
+        prefsEditor = prefsMain.edit();
+        Long timers = prefsMain.getLong("Timers",50000);
         timer = new Timer();
         timerTask = new TimerTask() {
             @Override
@@ -269,14 +277,18 @@ public class LocationService extends Service {
                 }
             }
         };
-        timer.schedule(timerTask, 0, 55000); // Example: run every 10 seconds
+        timer.schedule(timerTask, 0, timers); // Example: run every 10 seconds
     }
 
     @SuppressLint("MissingPermission")
     private void requestLocationUpdates() {
+        prefsMain = SingletonHelperGlobal.mySharedPreferenceHelper;
+        prefsEditor = prefsMain.edit();
+        Long timer = prefsMain.getLong("Timers",50000);
+        timer = timer-10000;
         LocationRequest request = LocationRequest.create()
-                .setInterval(50000)
-                .setFastestInterval(50000)
+                .setInterval(timer)
+                .setFastestInterval(timer)
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         FusedLocationProviderClient client = LocationServices.getFusedLocationProviderClient(this);
 
@@ -376,7 +388,8 @@ public class LocationService extends Service {
                             .addConverterFactory(GsonConverterFactory.create())
                             .build();
                     try {
-                        ModelError error = (ModelError) retrofit.responseBodyConverter(ModelError.class, new java.lang.annotation.Annotation[0]).convert(response.errorBody());
+                        ModelError error = (ModelError) retrofit.responseBodyConverter(ModelError.class,
+                                new java.lang.annotation.Annotation[0]).convert(response.errorBody());
                         // Utility.getInstance().showDialog(error.getMsg(), LocationService.this);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -388,7 +401,11 @@ public class LocationService extends Service {
                         if (responseJSON.getBoolean("status")) {
                             String timers = responseJSON.getString("timer");
                             String row_id = responseJSON.getString("row_id");
-                            prefsEditor.putString("timer_delay", timers);
+
+                            if(null==timers){
+                                timers = "50000";
+                            }
+                            prefsEditor.putLong("Timers", Long.parseLong(timers));
                             prefsEditor.commit();
                             deleteRowFromLocalLocationTable(Integer.parseInt(row_id));
                             Log.e("API", "Success: " + timers);

@@ -12,16 +12,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.google.gson.Gson;
 import com.securepreferences.SecurePreferences;
-import java.util.ArrayList;
-import java.util.List;
-import modelResponse.CheckFieldsResponse;
-import modelResponse.DynamicPhotoModel;
-import modelResponse.PhotoDetailsData;
 import utils.AppConstant;
 import utils.SingletonHelperGlobal;
-import utils.Utility;
 
 @SuppressLint("UseSparseArrays")
 public class MySQLiteHelper extends SQLiteOpenHelper {
