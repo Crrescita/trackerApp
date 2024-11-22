@@ -133,6 +133,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bec3c0c-6b9f-4d2d-8d5b-7bdda94fe7cd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/delete_user.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -140,119 +144,58 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____app_libs_YouTubeAndroidPlayerApi_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____app_libs_bcprov_jdk15on_150_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_databinding_adapters_7_4_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_databinding_common_7_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_databinding_runtime_7_4_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_v4_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_media_media_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_amanjeetsingh150_ImageZipper_1_3_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_drawers_SpinnerDatePicker_1_0_6_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_gcacace_signature_pad_1_2_1_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_google_cameraview_3eaeac09a7_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_worker8_radiogroupplus_v1_0_1_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_nineoldandroids_library_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_rengwuxian_materialedittext_library_2_1_4_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__id_zelory_compressor_2_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava2_rxjava_2_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_6_21.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_6_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_6_21.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_6_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlinx_kotlinx_coroutines_android_1_6_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlinx_kotlinx_coroutines_android_1_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlinx_kotlinx_coroutines_core_jvm_1_6_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlinx_kotlinx_coroutines_core_jvm_1_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_reactivestreams_reactive_streams_1_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.androidTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/My_Application.app.unitTest.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/libs/YouTubeAndroidPlayerApi.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/libs/bcprov-jdk15on-150.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/adapter/modelAdapter/AssignGroupListRecycleModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/adapter/modelAdapter/AssignedRecycleModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/app_service/UploadLogsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/BackgroundLocationPermissionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/DashboardActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/DashboardActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/IntroActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/IntroActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/SplashActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/forgot_password/ChangePasswordForgotPasswordActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/forgot_password/ChangePasswordForgotPasswordActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/forgot_password/SendOTPForgotPasswordActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/forgot_password/SendOTPForgotPasswordActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/forgot_password/VerifyOTPForgotPasswordActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/forgot_password/VerifyOTPForgotPasswordActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/fragments/MyRecordFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/MyRecordFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/fragments/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/fragments/adapter/MyRecordGridRecylerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/adapter/MyRecordGridRecylerViewAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/fragments/adapter/MyRecordModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/adapter/MyRecordModal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/profile_menu/ChangePasswordProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ChangePasswordProfileActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/profile_menu/ContactUsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/profile_menu/SupportUsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/profile_menu/UpdateProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/UpdateProfileActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/profile_menu/attendence_report/AttendenceReportActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/AttendenceReportActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/profile_menu/attendence_report/adapter/AttendenceModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/adapter/AttendenceModal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/profile_menu/attendence_report/adapter/AttendenceRecylerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/adapter/AttendenceRecylerViewAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/profile_menu/attendence_report/utils/MonthYearPickerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/utils/MonthYearPickerDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/database/MySQLiteHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/database/MySQLiteHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/AuthenticationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/CheckFieldsResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/ChecksDownloaded.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/DownloadChecksResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/DropDownValueForPhotoModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/DynamicPhotoModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/FEDashboardResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/FEDetailsResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/GSTAndDropDownPhotoModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/GroupHelperModelClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/MapsMarkerHelperModelClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/MultiCallModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/PhotoDetailsData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/SyncCheckResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/UnableToVerifyModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/feassigned_check_response/CheckField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/feassigned_check_response/Datum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/feassigned_check_response/DisabledChecks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/feassigned_check_response/EducationPhotoArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/feassigned_check_response/FEAssignedChecksResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/feassigned_check_response/StatedCheckField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/AddressComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/Bounds.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/GPSGeocodeResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/Geometry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/Location.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/Northeast.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/Northeast__1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/Southwest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/Southwest__1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/gps_geo_code/Viewport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/master_data/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/master_data/ITEM.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/master_data/MasterDataResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/notification/NotificationList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/notification/NotificationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/notification/parameter/NotificationData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/notification/parameter/NotificationParameter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/Geometry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/Location.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/Northeast.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/OpeningHours.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/Photo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/PlaceApiResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/PlusCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/Southwest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/places_api_response/Viewport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/proximity/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/proximity/ProximityStatusResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Bounds.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Distance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Distance__1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Duration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Duration__1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/EndLocation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/EndLocation__1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/GeocodedWaypoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Leg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Northeast.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/OverviewPolyline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Polyline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Route.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Southwest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/StartLocation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/StartLocation__1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/Step.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/WayPointSequenceError.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/WayPointSequenceResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/way_point_sequence/own_array/MyRequestedSequenceData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/encryption/AESEncreption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/listeners/RecyclerTouchListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/listeners/RecyclerTouchListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/modelResponse/ModelError.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/modelResponse/ModelError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/retrofitAPI/WebRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/retrofitAPI/WebRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/AsyncImageCompressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/AsyncImageCompressor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/OpusConnectSingleTon.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/OpusConnectSingleTon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/log/AppLogJsonProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/log/AppLogJsonProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/log/Logger.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/log/Logger.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/service/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/service/LocationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/service/MyFirebaseMessagingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/service/MyFirebaseMessagingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/abpal/employeetracker/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/crrescita/employeetracker/ExampleUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opus_signature.jks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/AppConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/AppConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/AsyncImageCompressor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/LocationDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/LocationDetector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/OpusConnectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/TelApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/OpusConnectSingleTon.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/TelApplicationSingleTon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/PermissionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/PermissionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/ProgressDrawable.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/ProgressDrawable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/utils/TypefaceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/utils/TypefaceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,7 +299,7 @@
   "keyToString": {
     "Android App.app.executor": "Run",
     "ApkExportedModule": "My_Application.app",
-    "DEBUGGABLE_DEVICE": "emulator-5556",
+    "DEBUGGABLE_DEVICE": "Android_12 [emulator-5554]",
     "DEBUGGABLE_PROCESS": "com.crrescita.tel",
     "DEBUGGER_ID": "Auto",
     "ExportApk.ApkPathForMy_Application.app": "/Users/ravithakur/projects/Android_Projects/OpusConnectApp/app",
@@ -373,7 +316,7 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/Users/ravithakur/projects/Android_Projects/EmployeeTrackerApp/app/src/main/res/drawable",
-    "last_opened_file_path": "/Users/ravithakur/projects/Android_Projects/EmployeeTrackerApp/app",
+    "last_opened_file_path": "/Users/ravithakur/projects/Android_Projects/EmployeeTrackerApp/app/src/main/res/drawable",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.0",
@@ -396,9 +339,9 @@
       <recent name="com.authbridge.addressverification.activity.withdrawn" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/src/main/res/raw" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/abpal/employeetracker/activity/fragments/adapter" />
       <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi" />
     </key>
@@ -750,253 +693,89 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/forgot_password/VerifyOTPForgotPasswordActivity.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="152" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="435" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="153" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>294</line>
+          <option name="timeStamp" value="436" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="154" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>295</line>
+          <option name="timeStamp" value="437" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="155" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>233</line>
+          <option name="timeStamp" value="438" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="156" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>235</line>
+          <option name="timeStamp" value="439" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="157" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>238</line>
+          <option name="timeStamp" value="440" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="158" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>241</line>
+          <option name="timeStamp" value="441" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>140</line>
-          <option name="timeStamp" value="159" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>243</line>
+          <option name="timeStamp" value="442" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>147</line>
-          <option name="timeStamp" value="160" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>245</line>
+          <option name="timeStamp" value="443" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="161" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>249</line>
+          <option name="timeStamp" value="444" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="162" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>248</line>
+          <option name="timeStamp" value="445" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/ContactUsActivity.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="163" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>257</line>
+          <option name="timeStamp" value="446" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/UpdateProfileActivity.java</url>
-          <line>419</line>
-          <option name="timeStamp" value="183" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>260</line>
+          <option name="timeStamp" value="447" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/UpdateProfileActivity.java</url>
-          <line>391</line>
-          <option name="timeStamp" value="184" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>265</line>
+          <option name="timeStamp" value="448" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/UpdateProfileActivity.java</url>
-          <line>392</line>
-          <option name="timeStamp" value="185" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>268</line>
+          <option name="timeStamp" value="449" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/UpdateProfileActivity.java</url>
-          <line>412</line>
-          <option name="timeStamp" value="187" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>282</line>
+          <option name="timeStamp" value="450" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/UpdateProfileActivity.java</url>
-          <line>416</line>
-          <option name="timeStamp" value="188" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>336</line>
-          <option name="timeStamp" value="231" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>337</line>
-          <option name="timeStamp" value="232" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>339</line>
-          <option name="timeStamp" value="233" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>338</line>
-          <option name="timeStamp" value="234" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>344</line>
-          <option name="timeStamp" value="235" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>354</line>
-          <option name="timeStamp" value="236" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>347</line>
-          <option name="timeStamp" value="237" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>310</line>
-          <option name="timeStamp" value="238" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>311</line>
-          <option name="timeStamp" value="239" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>331</line>
-          <option name="timeStamp" value="240" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>328</line>
-          <option name="timeStamp" value="241" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/SupportUsActivity.java</url>
-          <line>318</line>
-          <option name="timeStamp" value="242" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/AttendenceReportActivity.java</url>
-          <line>222</line>
-          <option name="timeStamp" value="252" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/AttendenceReportActivity.java</url>
-          <line>309</line>
-          <option name="timeStamp" value="253" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/AttendenceReportActivity.java</url>
-          <line>318</line>
-          <option name="timeStamp" value="255" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/AttendenceReportActivity.java</url>
-          <line>367</line>
-          <option name="timeStamp" value="256" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/utils/MonthYearPickerDialog.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="268" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/utils/MonthYearPickerDialog.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="269" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/profile_menu/attendence_report/utils/MonthYearPickerDialog.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="270" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/forgot_password/SendOTPForgotPasswordActivity.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="273" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/forgot_password/SendOTPForgotPasswordActivity.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="274" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/forgot_password/SendOTPForgotPasswordActivity.java</url>
-          <line>144</line>
-          <option name="timeStamp" value="275" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="386" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="387" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="388" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="389" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java</url>
-          <line>123</line>
-          <option name="timeStamp" value="390" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="391" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="392" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="393" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/BackgroundLocationPermissionActivity.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="394" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/LoginActivity.java</url>
-          <line>321</line>
-          <properties class="com.crrescita.employeetracker.activity.LoginActivity">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="272" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/crrescita/employeetracker/activity/fragments/ProfileFragment.java</url>
+          <line>289</line>
+          <option name="timeStamp" value="451" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

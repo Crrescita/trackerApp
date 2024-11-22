@@ -12,9 +12,6 @@ import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
 
-/**
- * Created by Kapil Rathee on 26/11/18.
- */
 
 public final class LocationDetector implements LocationListener {
 

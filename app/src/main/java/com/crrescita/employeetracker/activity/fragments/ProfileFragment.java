@@ -1,12 +1,16 @@
 package com.crrescita.employeetracker.activity.fragments;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +19,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.crrescita.employeetracker.activity.profile_menu.SupportUsActivity;
+import com.crrescita.tel.BuildConfig;
 import com.crrescita.tel.R;
 import com.crrescita.employeetracker.activity.LoginActivity;
 import com.crrescita.employeetracker.activity.profile_menu.ChangePasswordProfileActivity;
@@ -24,9 +29,25 @@ import com.crrescita.employeetracker.activity.profile_menu.attendence_report.Att
 import com.bumptech.glide.Glide;
 import com.securepreferences.SecurePreferences;
 
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.lang.annotation.Annotation;
+
 import de.hdodenhof.circleimageview.CircleImageView;
+import modelResponse.ModelError;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Converter;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+import retrofitAPI.WebRequest;
 import utils.AppConstant;
 import utils.SingletonHelperGlobal;
+import utils.Utility;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
@@ -42,6 +63,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private CardView cardViewContactUs;
     private CardView cardViewLogout;
     private CardView cardViewSupportUs;
+    private CardView cardViewDeleteAccount;
+    private ProgressDialog progressBar;
 
     @Nullable
     @Override
@@ -75,6 +98,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         cardViewSupportUs = view.findViewById(R.id.cardViewSupportUs);
         cardViewSupportUs.setOnClickListener(this);
 
+        cardViewDeleteAccount = view.findViewById(R.id.cardViewDeleteAccount);
+        cardViewDeleteAccount.setOnClickListener(this);
+
+        progressBar = new ProgressDialog(getActivity());
 
 
 
@@ -92,6 +119,21 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         userEmailId.setText(prefsMain.getString(AppConstant.EMPLOYEE_EMAIL_ID, "-----NA----"));
     }
 
+
+    private void showDeleteAccountConfirmationDialog() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Delete Account")
+                .setMessage("Are you sure you want to delete your account? You can reactivate it within 90 days; otherwise, it will be permanently deleted.")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteAccountAPI();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
     private void showLogoutConfirmationDialog() {
         new AlertDialog.Builder(requireContext())
                 .setTitle("Logout")
@@ -99,7 +141,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        logout();
+                        logoutAPI();
                     }
                 })
                 .setNegativeButton("No", null)
@@ -112,6 +154,148 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         getActivity().finish();
+    }
+
+
+    private void logoutAPI() {
+        try {
+            progressBar.setMessage("Please wait...");
+            progressBar.setCancelable(false);
+            progressBar.setCanceledOnTouchOutside(false);
+            progressBar.show();
+            JSONObject obj = new JSONObject();
+            obj.put("device", "ANDROID PHONE");
+            obj.put("ip_address", Utility.getInstance().getIPAddress());
+            obj.put("address", "NA");
+            obj.put("model_no", Build.MODEL);
+
+
+            WebRequest mWebRequest = new WebRequest(getActivity());
+            String token = prefsMain.getString(AppConstant.API_TOKEN, "");
+            Call<ResponseBody> user1 = mWebRequest.m_ApiInterface.logoutAPI(AppConstant.CONTENT_TYPE,
+                    "Bearer " + token, obj.toString());
+            user1.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.errorBody() != null) {
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl(BuildConfig.BASE_URL)
+                                .addConverterFactory(ScalarsConverterFactory.create())
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+                        Converter<ResponseBody, ModelError> converter = retrofit.responseBodyConverter(ModelError.class, new Annotation[0]);
+
+                        try {
+                            ModelError error = converter.convert(response.errorBody());
+                            progressBar.dismiss();
+                            if (getActivity() != null && !getActivity().isFinishing()) {
+                                Utility.getInstance().handleApiError(error.getMsg(), getActivity(), prefsEditor);
+                            }
+
+                        } catch (IOException e) {
+                            //This is Catch Block
+                            progressBar.dismiss();
+                        }
+                    } else {
+                        progressBar.dismiss();
+                        try {
+                            String responseBodyString = response.body().string();
+                            JSONObject responseJSON = new JSONObject(responseBodyString);
+                            if (responseJSON.getBoolean("status")) {
+                                Toast.makeText(getActivity(), responseJSON.getString("message"), Toast.LENGTH_SHORT).show();
+                                logout();
+                            } else {
+                                if (getActivity() != null && !getActivity().isFinishing()) {
+                                    Utility.getInstance().handleApiError(responseJSON.getString("message"),
+                                            getActivity(), prefsEditor);
+                                }
+                            }
+                        } catch (Exception e) {
+                            Log.e("dd", "sdds");
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    progressBar.dismiss();
+                }
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            progressBar.dismiss();
+        }
+
+    }
+
+    private void deleteAccountAPI() {
+        try {
+            progressBar.setMessage("Please wait...");
+            progressBar.setCancelable(false);
+            progressBar.setCanceledOnTouchOutside(false);
+            progressBar.show();
+            JSONObject obj = new JSONObject();
+            obj.put("status", "inactive");
+
+
+            WebRequest mWebRequest = new WebRequest(getActivity());
+            String token = prefsMain.getString(AppConstant.API_TOKEN, "");
+            Call<ResponseBody> user1 = mWebRequest.m_ApiInterface.deleteAccount(AppConstant.CONTENT_TYPE,
+                    "Bearer " + token,obj.toString());
+            user1.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.errorBody() != null) {
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl(BuildConfig.BASE_URL)
+                                .addConverterFactory(ScalarsConverterFactory.create())
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+                        Converter<ResponseBody, ModelError> converter = retrofit.responseBodyConverter(ModelError.class, new Annotation[0]);
+
+                        try {
+                            ModelError error = converter.convert(response.errorBody());
+                            progressBar.dismiss();
+                            if (getActivity() != null && !getActivity().isFinishing()) {
+                                Utility.getInstance().handleApiError(error.getMsg(), getActivity(), prefsEditor);
+                            }
+
+                        } catch (IOException e) {
+                            //This is Catch Block
+                            progressBar.dismiss();
+                        }
+                    } else {
+                        progressBar.dismiss();
+                        try {
+                            String responseBodyString = response.body().string();
+                            JSONObject responseJSON = new JSONObject(responseBodyString);
+                            if (responseJSON.getBoolean("status")) {
+                                Toast.makeText(getActivity(), responseJSON.getString("message"), Toast.LENGTH_SHORT).show();
+                                logout();
+                            } else {
+                                if (getActivity() != null && !getActivity().isFinishing()) {
+                                    Utility.getInstance().handleApiError(responseJSON.getString("message"),
+                                            getActivity(), prefsEditor);
+                                }
+                            }
+                        } catch (Exception e) {
+                            Log.e("dd", "sdds");
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    progressBar.dismiss();
+                }
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            progressBar.dismiss();
+        }
+
     }
 
     @Override
@@ -146,6 +330,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             case R.id.cardViewLogout:
                 showLogoutConfirmationDialog();
                 break;
+
+            case R.id.cardViewDeleteAccount:
+                 showDeleteAccountConfirmationDialog();
+                 break;
             default:
                 break;
         }

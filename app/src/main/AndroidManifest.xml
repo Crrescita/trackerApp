@@ -27,7 +27,7 @@
         android:required="true" />
 
     <application
-        android:name="utils.OpusConnectApplication"
+        android:name="utils.TelApplication"
         android:allowBackup="false"
         android:icon="@mipmap/launcher_icon_tracker"
         android:label="@string/app_name"

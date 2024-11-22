@@ -8,9 +8,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 
-/**
- * Created by Kapil Rathee on 21/11/18.
- */
 
 public class ProgressDrawable extends Drawable {
     private static final int NUM_SEGMENTS = 1;

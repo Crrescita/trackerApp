@@ -5,10 +5,6 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Kapil Rathee on 13/9/18.
- */
-
 public class ModelError implements Parcelable {
     @SerializedName("status")
     private String status;

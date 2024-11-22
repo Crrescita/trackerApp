@@ -49,8 +49,8 @@ public class PermissionManager {
             } else {
                 switch (requestcode){
                     case NOTIFICATION_PERMISSION_REQUEST_CODE:
-                        if (OpusConnectSingleTon.getInstance().isFirstTimeAskingNotificationPermission(prefsMain)) {
-                            OpusConnectSingleTon.getInstance().setFirstTimeAskingNotificationPermission(prefsEditor,false);
+                        if (TelApplicationSingleTon.getInstance().isFirstTimeAskingNotificationPermission(prefsMain)) {
+                            TelApplicationSingleTon.getInstance().setFirstTimeAskingNotificationPermission(prefsEditor,false);
                             //sessionManager.firstTimeAskingPermission(permission, false);
                             listener.onNeedPermission();
                         } else {
@@ -59,8 +59,8 @@ public class PermissionManager {
                         break;
 
                     case CAMERA_REQUEST_REQUEST_CODE:
-                        if (OpusConnectSingleTon.getInstance().isFirstTimeAskingCameraPermission(prefsMain)) {
-                            OpusConnectSingleTon.getInstance().setFirstTimeAskingCameraPermission(prefsEditor,false);
+                        if (TelApplicationSingleTon.getInstance().isFirstTimeAskingCameraPermission(prefsMain)) {
+                            TelApplicationSingleTon.getInstance().setFirstTimeAskingCameraPermission(prefsEditor,false);
                             //sessionManager.firstTimeAskingPermission(permission, false);
                             listener.onNeedPermission();
                         } else {
@@ -70,8 +70,8 @@ public class PermissionManager {
 
                     case ACCESS_FINE_LOCATION_REQUEST_CODE:
 
-                        if (OpusConnectSingleTon.getInstance().isFirstTimeAskingFinePermission(prefsMain)) {
-                            OpusConnectSingleTon.getInstance().setFirstTimeAskingFinePermission(prefsEditor,false);
+                        if (TelApplicationSingleTon.getInstance().isFirstTimeAskingFinePermission(prefsMain)) {
+                            TelApplicationSingleTon.getInstance().setFirstTimeAskingFinePermission(prefsEditor,false);
                             //sessionManager.firstTimeAskingPermission(permission, false);
                             listener.onNeedPermission();
                         } else {
@@ -81,8 +81,8 @@ public class PermissionManager {
                         break;
 
                     case ACCESS_COARSE_LOCATION_REQUEST_CODE:
-                        if (OpusConnectSingleTon.getInstance().isFirstTimeAskingCoarsePermission(prefsMain)) {
-                            OpusConnectSingleTon.getInstance().setFirstTimeAskingCoarsePermission(prefsEditor,false);
+                        if (TelApplicationSingleTon.getInstance().isFirstTimeAskingCoarsePermission(prefsMain)) {
+                            TelApplicationSingleTon.getInstance().setFirstTimeAskingCoarsePermission(prefsEditor,false);
                             //sessionManager.firstTimeAskingPermission(permission, false);
                             listener.onNeedPermission();
                         } else {
@@ -91,8 +91,8 @@ public class PermissionManager {
                         break;
 
                     case ACCESS_READ_EXTERNAL_STORAGE_CODE:
-                        if (OpusConnectSingleTon.getInstance().isFirstTimeExternalCoarsePermission(prefsMain)) {
-                            OpusConnectSingleTon.getInstance().setFirstTimeAskingExternalPermission(prefsEditor,false);
+                        if (TelApplicationSingleTon.getInstance().isFirstTimeExternalCoarsePermission(prefsMain)) {
+                            TelApplicationSingleTon.getInstance().setFirstTimeAskingExternalPermission(prefsEditor,false);
                             //sessionManager.firstTimeAskingPermission(permission, false);
                             listener.onNeedPermission();
                         } else {

@@ -18,14 +18,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import com.crrescita.tel.BuildConfig;
 import com.crrescita.tel.R;
 import com.crrescita.employeetracker.activity.forgot_password.SendOTPForgotPasswordActivity;
@@ -33,12 +31,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.securepreferences.SecurePreferences;
-
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.lang.annotation.Annotation;
-
 import utils.SingletonHelperGlobal;
 import database.MySQLiteHelper;
 import modelResponse.ModelError;
@@ -123,6 +118,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     ACCESS_FINE_LOCATION_REQUEST_CODE);
         } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED  && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+
+            // this code change because we need another page to show instruction first then take permission from user
+
                 // Request ACCESS_BACKGROUND_LOCATION if ACCESS_FINE_LOCATION is granted
             Intent intent = new Intent(this, BackgroundLocationPermissionActivity.class);
             activityResultLauncher.launch(intent);
@@ -279,13 +277,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 obj.put("device_model_number", Build.MODEL);
                 obj.put("device_name", Build.MANUFACTURER);
                 obj.put("address", "NA");
+                obj.put("model_no", Build.MODEL);
 
-
-//              obj.put("device_model_number", "RMX2193");
-                if (BuildConfig.DEBUG) {
-                    obj.put("device_model_number", "CPH2381");
-                    // obj.put("device_model_number", "Redmi 5A");
-                }
                 loginRequest(obj);
 
             } catch (Exception e) {

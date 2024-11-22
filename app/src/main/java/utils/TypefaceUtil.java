@@ -6,9 +6,6 @@ import android.util.Log;
 
 import java.lang.reflect.Field;
 
-/**
- * Created by Kapil Rathee on 26/9/18.
- */
 
 public class TypefaceUtil {
 

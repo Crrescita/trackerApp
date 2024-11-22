@@ -32,10 +32,6 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
-
-/**
- * Created by Kapil Rathee on 10/9/18.
- */
 public class WebRequest {
     public static APIInterface m_ApiInterface;
 
@@ -44,37 +40,19 @@ public class WebRequest {
     }
 
     private static class RestClient {
-        //private static APIInterface m_ApiInterfaceKapil
         public static APIInterface getClient() {
-            //Log.e("server type",server_type)
-            //if (m_ApiInterfaceKapil == null) {
             String url = BuildConfig.BASE_URL;
-            //Log.e("Final Url",url)
             Gson gson = new GsonBuilder()
                     .setLenient()
                     .create();
             System.setProperty("http.keepAlive", "false");
-
             OkHttpClient client = new OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).readTimeout(100, TimeUnit.SECONDS).writeTimeout(100, TimeUnit.SECONDS).build();
-            /*client.interceptors().add(new Interceptor() {
-                   @Override
-                   public Response intercept(Chain chain) throws IOException {
-                       Response response = chain.proceed(chain.request());
-                       // Catch unauthorised error
-                       return response;
-                   }
-               });*/
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(url)
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .client(getUnsafeOkHttpClient().build())
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
-            //m_ApiInterfaceKapil = retrofit.create(APIInterface.class)
-            //.client(getUnsafeOkHttpClient().build())
-
-            //}
-            //return m_ApiInterfaceKapil
             return retrofit.create(APIInterface.class);
         }
 
@@ -222,6 +200,16 @@ public class WebRequest {
         Call<ResponseBody> checkAppVersion(@Header("Content-Type") String con_type,
                                           @Header("authorization") String authorization,
                                           @Body String jsonObject);
+
+        @POST("logout")
+        Call<ResponseBody> logoutAPI(@Header("Content-Type") String con_type,
+                                       @Header("authorization") String authorization,
+                                       @Body String jsonObject);
+
+        @GET("account/status")
+        Call<ResponseBody> deleteAccount(@Header("Content-Type") String con_type,
+                                             @Header("authorization") String authorization,
+                                         @Body String jsonObject);
 
 
     }

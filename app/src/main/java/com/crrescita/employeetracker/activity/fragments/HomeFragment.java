@@ -172,7 +172,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-
     private void vibrateDevice() {
         // Get the Vibrator service
         Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);

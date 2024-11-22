@@ -1,9 +1,3 @@
-/**
- * @author ${Kapil Rathee}
- * @date ${13-Sep-2018}
- * @date ${Last Modified}
- * # Database helper class.
- */
 package database;
 
 import android.annotation.SuppressLint;
