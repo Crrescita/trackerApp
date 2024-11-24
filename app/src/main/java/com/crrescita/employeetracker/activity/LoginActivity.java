@@ -422,7 +422,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (responseJSON.getBoolean("status")) {
                             if(responseJSON.getBoolean("is_update")){
                                 //Update the Application
-                                Utility.getInstance().showAppUpdateDailog(LoginActivity.this,prefsEditor,responseJSON.getString("msg"),LoginActivity.this);
+                                Utility.getInstance().showAppUpdateDailog(LoginActivity.this,prefsEditor,responseJSON.getString("msg"),
+                                        LoginActivity.this,responseJSON.getString("link"));
                             }else{
                                 Toast.makeText(LoginActivity.this, "Logged In Successfully", Toast.LENGTH_SHORT).show();
                                 prefsEditor.putBoolean(AppConstant.IS_USER_LOGGED_IN, true);

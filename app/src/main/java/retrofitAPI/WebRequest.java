@@ -206,7 +206,7 @@ public class WebRequest {
                                        @Header("authorization") String authorization,
                                        @Body String jsonObject);
 
-        @GET("account/status")
+        @POST("account/status")
         Call<ResponseBody> deleteAccount(@Header("Content-Type") String con_type,
                                              @Header("authorization") String authorization,
                                          @Body String jsonObject);

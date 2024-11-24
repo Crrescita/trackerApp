@@ -1,5 +1,7 @@
 package utils;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +11,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Build;
 
 import androidx.appcompat.app.AlertDialog;
@@ -90,7 +93,8 @@ public class Utility {
         context.startActivity(intent);
     }
 
-    public void showAppUpdateDailog(Context context,SecurePreferences.Editor prefsEditor,String msg,Activity activity) {
+    public void showAppUpdateDailog(Context context,SecurePreferences.Editor prefsEditor,
+                                    String msg,Activity activity,String link) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("App Update Alert");
         builder.setMessage(msg);
@@ -98,8 +102,13 @@ public class Utility {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(context, "Play Store link will coming soon! or you can try to update from playstore", Toast.LENGTH_SHORT).show();
-                activity.finish();
+                    final String appPackageName = context.getPackageName(); // package name of the app
+                    try {
+                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    } catch (android.content.ActivityNotFoundException anfe) {
+                        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                    }
+
             }
         });
         builder.show();

@@ -74,6 +74,7 @@ public class SupportUsActivity extends AppCompatActivity  {
     private ImageView imageViewUploadDocuments;
     private ImageView imageViewHeader;
     private TextView textViewFileName;
+    private TextView textViewVersionNumber;
 
     private ImageView imageViewUploadProfile;
     private Uri imageUri;
@@ -99,6 +100,7 @@ public class SupportUsActivity extends AppCompatActivity  {
         emailAddressEditText = findViewById(R.id.emailAddressEditText);
         emailAddressEditText.setText(prefsMain.getString(AppConstant.EMPLOYEE_EMAIL_ID, "-----NA----"));
         messageEditText = findViewById(R.id.messageEditText);
+        textViewVersionNumber = findViewById(R.id.textViewVersionNumber);
 
         imageViewUploadDocuments = findViewById(R.id.imageViewUploadDocuments);
         imageViewUploadDocuments.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +116,7 @@ public class SupportUsActivity extends AppCompatActivity  {
         textViewFileName = findViewById(R.id.textViewFileName);
         textViewFileName.setVisibility(View.GONE);
 
+        textViewVersionNumber.setText("App version - "+BuildConfig.VERSION_NAME);
 
         imageViewBackButton.setOnClickListener(new View.OnClickListener() {
             @Override

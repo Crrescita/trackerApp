@@ -239,7 +239,8 @@ public class DashboardActivity extends AppCompatActivity {
                         if (responseJSON.getBoolean("status")) {
                             if(responseJSON.getBoolean("is_update")){
                                 //Update the Application
-                                Utility.getInstance().showAppUpdateDailog(DashboardActivity.this,prefsEditor,responseJSON.getString("msg"),DashboardActivity.this);
+                                Utility.getInstance().showAppUpdateDailog(DashboardActivity.this,prefsEditor,
+                                        responseJSON.getString("msg"),DashboardActivity.this,responseJSON.getString("link"));
                             }else{
                                 //Toast.makeText(DashboardActivity.this, responseJSON.getString("msg"), Toast.LENGTH_SHORT).show();
                             }

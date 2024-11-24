@@ -68,6 +68,20 @@
                 android:textColor="@color/new_text_heading"/>
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewVersionNumber"
+                android:text="Version No"
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/gray_color"/>
+
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailAddressInputLayout"
